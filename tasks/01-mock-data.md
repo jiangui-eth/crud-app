@@ -2,7 +2,7 @@
 id: "01"
 title: 模拟任务数据
 phase: task1
-status: todo
+status: done
 estimate: 2m
 ---
 
