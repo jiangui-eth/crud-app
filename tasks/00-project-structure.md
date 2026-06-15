@@ -2,7 +2,7 @@
 id: "00"
 title: 项目结构初始化
 phase: init
-status: todo
+status: done
 estimate: 5m
 ---
 

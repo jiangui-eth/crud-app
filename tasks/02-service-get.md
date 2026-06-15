@@ -2,7 +2,7 @@
 id: "02"
 title: taskService — getTasks
 phase: task1
-status: todo
+status: done
 estimate: 3m
 ---
 

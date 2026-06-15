@@ -2,7 +2,7 @@
 id: "08"
 title: taskService — createTask & updateTask
 phase: task2
-status: todo
+status: done
 estimate: 3m
 ---
 

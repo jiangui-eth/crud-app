@@ -2,7 +2,7 @@
 id: "13"
 title: TaskItem — 删除按钮
 phase: task3
-status: todo
+status: done
 estimate: 3m
 ---
 
