@@ -1,16 +1,72 @@
-# React + Vite
+# crud-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Todo List application with full CRUD functionality, built with React 19 and Vite.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Layer | Library |
+|---|---|
+| UI | React 19 + Vite 6 |
+| State | Context API + custom hook |
+| Form & Validation | react-hook-form + Zod |
+| Notifications | react-toastify |
+| Date formatting | date-fns |
+| ID generation | uuid |
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Display** — loads tasks on mount with a loading indicator; shows error state on failure
+- **Create** — add a task via a validated form (title required, 1–100 characters)
+- **Update** — toggle completed status via checkbox; inline title editing with Enter / Escape support
+- **Delete** — delete with a confirmation dialog
+- **Search** — real-time case-insensitive filter by title; two empty-state messages
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── App.jsx                  # Root component, mounts ToastContainer
+├── main.jsx                 # Entry point, wraps app with TaskProvider
+│
+├── pages/
+│   └── TasksPage.jsx        # Main page: search, list, empty states
+│
+├── components/
+│   ├── TaskForm.jsx         # Add-task form with validation
+│   ├── TaskList.jsx         # Renders list of TaskItem
+│   ├── TaskItem.jsx         # Single task: display, edit, delete, toggle
+│   └── SearchBar.jsx        # Controlled search input
+│
+├── context/
+│   └── TaskContext.jsx      # TaskProvider — tasks, loading, error, CRUD actions
+│
+├── hooks/
+│   └── useTasks.js          # useContext(TaskContext) wrapper
+│
+├── services/
+│   └── taskService.js       # Simulated async API (in-memory, ~400ms delay)
+│
+├── data/
+│   └── mockTasks.js         # Seed data (3 sample tasks)
+│
+└── styles/
+    └── app.css              # Global styles
+```
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:8080](http://localhost:8080) in your browser.
+
+## Available Scripts
+
+| Script | Description |
+|---|---|
+| `npm run dev` | Start development server on port 8080 |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Lint source files with ESLint |
