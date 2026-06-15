@@ -2,7 +2,7 @@
 id: "06"
 title: TaskList — 渲染任务列表
 phase: task1
-status: todo
+status: done
 estimate: 3m
 ---
 

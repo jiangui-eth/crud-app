@@ -2,7 +2,7 @@
 id: "05"
 title: TaskItem — 展示任务信息
 phase: task1
-status: todo
+status: done
 estimate: 5m
 ---
 
