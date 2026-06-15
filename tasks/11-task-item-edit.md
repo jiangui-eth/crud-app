@@ -2,7 +2,7 @@
 id: "11"
 title: TaskItem — 切换完成状态 & 行内编辑
 phase: task2
-status: todo
+status: done
 estimate: 5m
 ---
 
