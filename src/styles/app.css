@@ -20,3 +20,45 @@ h1 {
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
 }
+
+/* Status messages */
+.status {
+  color: #555;
+}
+.status.error {
+  color: #c0392b;
+}
+
+/* Task list */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.task-title {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.task-date {
+  font-size: 0.8rem;
+  color: #aaa;
+  white-space: nowrap;
+}

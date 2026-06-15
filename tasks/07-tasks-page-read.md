@@ -2,7 +2,7 @@
 id: "07"
 title: TasksPage — 挂载获取并展示列表
 phase: task1
-status: todo
+status: done
 estimate: 3m
 ---
 
