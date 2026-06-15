@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid'
 import { mockTasks } from '../data/mockTasks'
 
 let tasks = [...mockTasks]
@@ -9,6 +10,24 @@ export async function getTasks() {
   return [...tasks]
 }
 
-export async function createTask() {}
-export async function updateTask() {}
+export async function createTask(title) {
+  await delay()
+  const task = {
+    id: uuidv4(),
+    title,
+    completed: false,
+    createdAt: new Date().toISOString(),
+  }
+  tasks.push(task)
+  return { ...task }
+}
+
+export async function updateTask(id, updates) {
+  await delay()
+  const index = tasks.findIndex(t => t.id === id)
+  if (index === -1) throw new Error(`Task ${id} not found`)
+  tasks[index] = { ...tasks[index], ...updates }
+  return { ...tasks[index] }
+}
+
 export async function deleteTask() {}
