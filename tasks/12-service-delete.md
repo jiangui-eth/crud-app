@@ -2,7 +2,7 @@
 id: "12"
 title: taskService — deleteTask
 phase: task3
-status: todo
+status: done
 estimate: 2m
 ---
 

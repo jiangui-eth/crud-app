@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { useTasks } from '../hooks/useTasks'
 
 export default function TaskItem({ task }) {
-  const { updateTask } = useTasks()
+  const { updateTask, deleteTask } = useTasks()
   const [editing, setEditing] = useState(false)
   const [editTitle, setEditTitle] = useState(task.title)
 
@@ -25,6 +25,12 @@ export default function TaskItem({ task }) {
   function handleCancel() {
     setEditTitle(task.title)
     setEditing(false)
+  }
+
+  async function handleDelete() {
+    if (!window.confirm('Delete this task?')) return
+    await deleteTask(task.id)
+    toast.success('Task deleted!')
   }
 
   function handleKeyDown(e) {
@@ -56,7 +62,10 @@ export default function TaskItem({ task }) {
           <button className="btn-icon" onClick={handleCancel}>Cancel</button>
         </>
       ) : (
-        <button className="btn-icon" onClick={() => { setEditing(true); setEditTitle(task.title) }}>Edit</button>
+        <>
+          <button className="btn-icon" onClick={() => { setEditing(true); setEditTitle(task.title) }}>Edit</button>
+          <button className="btn-icon btn-delete" onClick={handleDelete}>Delete</button>
+        </>
       )}
     </li>
   )
