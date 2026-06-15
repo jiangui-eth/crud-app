@@ -119,6 +119,7 @@ h1 {
   background: #fff;
   cursor: pointer;
   white-space: nowrap;
+  color: #333;
 }
 
 .btn-icon:disabled {
