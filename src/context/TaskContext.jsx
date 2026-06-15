@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { getTasks, createTask, updateTask as serviceUpdateTask } from '../services/taskService'
+import { getTasks, createTask, updateTask as serviceUpdateTask, deleteTask as serviceDeleteTask } from '../services/taskService'
 
 const TaskContext = createContext(null)
 
@@ -27,8 +27,13 @@ export function TaskProvider({ children }) {
     return updated
   }
 
+  async function deleteTask(id) {
+    await serviceDeleteTask(id)
+    setTasks(prev => prev.filter(t => t.id !== id))
+  }
+
   return (
-    <TaskContext.Provider value={{ tasks, loading, error, addTask, updateTask }}>
+    <TaskContext.Provider value={{ tasks, loading, error, addTask, updateTask, deleteTask }}>
       {children}
     </TaskContext.Provider>
   )

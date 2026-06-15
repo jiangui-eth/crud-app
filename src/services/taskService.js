@@ -30,4 +30,10 @@ export async function updateTask(id, updates) {
   return { ...tasks[index] }
 }
 
-export async function deleteTask() {}
+export async function deleteTask(id) {
+  await delay()
+  const index = tasks.findIndex(t => t.id === id)
+  if (index === -1) throw new Error(`Task ${id} not found`)
+  tasks.splice(index, 1)
+  return id
+}
